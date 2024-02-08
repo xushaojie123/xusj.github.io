@@ -1,6 +1,6 @@
 ---
 title: Multiply
-date: 2024-02-04 21:27:12
+date: 2024-02-08 23:48:48
 tags:
 ---
 ---
@@ -20,6 +20,7 @@ tags:
 | product | 64 | multiply product |
 | mult_end | 1 | end multiply signal |
 ---
+    
 ## 2 **Design**
 ---
 ### 2.1 *multiply.v*
@@ -707,20 +708,20 @@ endmodule```
 ### 3.1 *Compile Report*<p align="right">**Errors: 0, Warnings: 0**</p>
 ```
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
-Start time: 21:27:11 on Feb 04,2024
+Start time: 23:48:46 on Feb 08,2024
 vlog -work work ./design/multiply.v ./design/testbench.v -l vcompile.txt 
 -- Compiling module multiply
 -- Compiling module tb
 
 Top level modules:
 	tb
-End time: 21:27:11 on Feb 04,2024, Elapsed time: 0:00:00
+End time: 23:48:47 on Feb 08,2024, Elapsed time: 0:00:01
 Errors: 0, Warnings: 0
 ```
 ### 3.2 *Simulation Report*<p align="right">**Errors: 0, Warnings: 0**</p>
 ```
 # vsim -voptargs="+acc" work.tb -l ./vsim.txt -wlf ./vsim.wlf 
-# Start time: 21:27:11 on Feb 04,2024
+# Start time: 23:48:47 on Feb 08,2024
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  ModelSim SE-64 10.7 Dec  7 2017
 # //
@@ -740,7 +741,7 @@ Errors: 0, Warnings: 0
 #  ------ERROR. A mismatch has occurred-----,ERROR in          40
 # 1 ERROR! See log above for details.
 # quit
-# End time: 21:27:12 on Feb 04,2024, Elapsed time: 0:00:01
+# End time: 23:48:48 on Feb 08,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 ```
 ### 3.3 *TestBench Report*
