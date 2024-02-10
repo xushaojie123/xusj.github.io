@@ -1,6 +1,6 @@
 ---
-title: Ring-Oscillator
-date: 2024-02-11 00:18:49
+title: inv_Ring-Oscillator
+date: 2024-02-11 00:31:37
 tags:
 ---
 ---
