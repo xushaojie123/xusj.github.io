@@ -1,12 +1,12 @@
 ---
 title: Ring-Oscillator
-date: 2024-02-09 00:27:45
+date: 2024-02-11 00:07:56
 tags:
 ---
 ---
 ## 1 **sp** ————A 7-stage Ring-Oscillator
 ---
-``` HSPICE
+``` SPICE
 *###############
 *#    Title    #
 *###############
@@ -84,8 +84,8 @@ VDDA VDD 0 PWL 0 0 1n 'supply_voltage'
 *# Overall #
 .probe v(n1) v(n2) v(n3) v(n4) v(n5) v(n6) v(n7) v(VDD) i(VDDA)
 .measure tran power AVG P(vdda) from=5n to=30n
-.end```
-
+.end
+```
 ---
 ## 2 **output.lis** 
 ---
@@ -99,11 +99,11 @@ VDDA VDD 0 PWL 0 0 1n 'supply_voltage'
   this software is strictly prohibited.
   Input File: C:\Users\Xsj\Desktop\test\inv_osc.sp                              
   Command line options: C:\synopsys\Hspice_S-2021.09\WIN64\hspice.com -i C:\Users\Xsj\Desktop\test\inv_osc.sp -o C:\Users\Xsj\Desktop\test\output
-  Start time: Fri Feb  9 00:27:29 2024
+  Start time: Sun Feb 11 00:07:39 2024
   lic:  
   lic: FLEXlm: SDK_12.9.6 
   lic: USER:   Xsj                  HOSTNAME: DESKTOP-xsj 
-  lic: HOSTID: 00ff5de8477c         PID:      9088 
+  lic: HOSTID: 00ffeb6793be         PID:      1624 
   lic: Using FLEXlm license file: 
   lic: C:\synopsys\synopsys_lic.dat 
   lic: Checkout 1 hspice 
@@ -865,25 +865,25 @@ Model Name: lvtpfet
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.00           1           5
-  transient          6.73       30001       52357       16160 rev=         0
-  readin             0.06
-  errchk             0.02
+  transient          6.90       30001       52357       16160 rev=         0
+  readin             0.08
+  errchk             0.03
   setup              0.00
   output             0.00
 
 
-           peak memory used         94.04 megabytes
-           total cpu time            6.81 seconds
-           total elapsed time       16.46 seconds
-           job started at     00:27:29 02/09/2024
-           job ended   at     00:27:45 02/09/2024
-           job total runtime        16.46 seconds
+           peak memory used         92.05 megabytes
+           total cpu time            7.02 seconds
+           total elapsed time       16.43 seconds
+           job started at     00:07:39 02/11/2024
+           job ended   at     00:07:56 02/11/2024
+           job total runtime        16.43 seconds
 
 
   lic: Release hspice token(s) 
- lic: total license checkout elapse time:        9.64(s)
-```
+ lic: total license checkout elapse time:        9.41(s)
 
+```
 ---
 ## 3 **output.mt0** 
 ---
