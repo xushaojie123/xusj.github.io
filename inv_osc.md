@@ -1,6 +1,6 @@
 ---
 title: Ring-Oscillator
-date: 2024-02-09 00:16:38
+date: 2024-02-09 00:27:45
 tags:
 ---
 ---
@@ -99,11 +99,11 @@ VDDA VDD 0 PWL 0 0 1n 'supply_voltage'
   this software is strictly prohibited.
   Input File: C:\Users\Xsj\Desktop\test\inv_osc.sp                              
   Command line options: C:\synopsys\Hspice_S-2021.09\WIN64\hspice.com -i C:\Users\Xsj\Desktop\test\inv_osc.sp -o C:\Users\Xsj\Desktop\test\output
-  Start time: Fri Feb  9 00:16:23 2024
+  Start time: Fri Feb  9 00:27:29 2024
   lic:  
   lic: FLEXlm: SDK_12.9.6 
   lic: USER:   Xsj                  HOSTNAME: DESKTOP-xsj 
-  lic: HOSTID: 00ff5de8477c         PID:      6516 
+  lic: HOSTID: 00ff5de8477c         PID:      9088 
   lic: Using FLEXlm license file: 
   lic: C:\synopsys\synopsys_lic.dat 
   lic: Checkout 1 hspice 
@@ -865,23 +865,23 @@ Model Name: lvtpfet
 
   analysis           time    # points   tot. iter  conv.iter
   op point           0.00           1           5
-  transient          6.70       30001       52357       16160 rev=         0
+  transient          6.73       30001       52357       16160 rev=         0
   readin             0.06
   errchk             0.02
   setup              0.00
   output             0.00
 
 
-           peak memory used         92.16 megabytes
-           total cpu time            6.79 seconds
-           total elapsed time       15.09 seconds
-           job started at     00:16:23 02/09/2024
-           job ended   at     00:16:38 02/09/2024
-           job total runtime        15.09 seconds
+           peak memory used         94.04 megabytes
+           total cpu time            6.81 seconds
+           total elapsed time       16.46 seconds
+           job started at     00:27:29 02/09/2024
+           job ended   at     00:27:45 02/09/2024
+           job total runtime        16.46 seconds
 
 
   lic: Release hspice token(s) 
- lic: total license checkout elapse time:        8.30(s)
+ lic: total license checkout elapse time:        9.64(s)
 ```
 
 ---
