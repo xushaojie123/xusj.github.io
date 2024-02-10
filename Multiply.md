@@ -1,6 +1,6 @@
 ---
 title: Multiply
-date: 2024-02-10 23:27:41
+date: 2024-02-10 23:33:34
 tags:
 ---
 ---
@@ -490,238 +490,26 @@ module tb;
 endmodule
 
 ```
-### 2.3 *q1_error_case1.v*
-``` Verilog
-module top_module (
-    input clk,
-    input reset,      
-    input data,
-    output start_shifting);
-
-    parameter IDLE = 3'd0, S1 = 3'd1, S2 = 3'd2；
-    parameter S3 = 3'd3, OUT = 3'd4;
-    wire [2:0] current_state, next_state; 
-
-    always @(*) begin
-        Case(current_state) 
-            IDLE:       next_state = data ? S1 : IDLE 
-            S1:         next_state = data ? S2 : IDLE;
-            S2:         next_state = data ? S2 : S3;
-            S3:         next_state = data ? OUT : IDLE;
-            OUT:        next_state = OUT;
-            default:    next_state = IDLE;
-        endcsae 
-    end
-
-    always @(posedge clk) begin
-        if(reset) begin
-            current_state <= IDLE;
-        end
-        else begin
-            current_state <= next_state;
-        end
-    end
-
-    assign start_shifting = current_state = OUT;
-
-endmodule```
-### 2.4 *q1_error_case2.v*
-``` Verilog
-module top_module (
-    input clk,
-    input reset,      // Synchronous reset
-    input data,
-    output start_shifting);
-
-    parameter IDLE = 3'd0, S1 = 3'd1, S2 = 3'd2;
-    parameter S3 = 3'd3, OUT = 3'd4;
-    reg [2:0] current_state, next_state;
-
-    always @(*) begin
-        case(current_state)
-            IDLE:       next_state = data ? S1 : IDLE;
-            S1:         next_state = data ? S2 : IDLE;
-            S2:         next_state = data ? S2 : S3;
-            S3:         next_state = data ? OUT : IDLE;
-            OUT:        next_state = OUT;
-            default:    next_state = IDLE;
-        endcase
-    end
-
-    always @(posedge clk) begin
-        if(reset) begin
-            current_state <= IDLE;
-        end
-        else begin
-            current_state <= next_state;
-        end
-
-    assign start_shifting = current_state == OUT;
-
-endmodule
-```
-### 2.5 *q1_error_case3.v*
-``` Verilog
-module top_module (
-    input clk,
-    input reset,    
-    input data,
-    output start_shifting);
-
-    parameter IDLE = 0, S1 = 1, S2 = 10;
-    parameter S3 = 11, OUT = 100;
-    reg [2:0] current_state, next_state;
-
-    always @(*) begin
-        case(current_state)
-            IDLE:       next_state = data ? S1 : IDLE;
-            S1:         next_state = data ? S2 : IDLE;
-            S2:         next_state = data ? S2 : S3;
-            S3:         next_state = data ? OUT : IDLE;
-            OUT:        next_state = OUT;
-            default:    next_state = IDLE;
-        endcase
-    end
-
-    always @(posedge clk) begin
-        if(reset) begin
-            current_state <= IDLE;
-        end
-        else begin
-            current_state <= next_state;
-        end
-    end
-
-    assign start_shifting = current_state == OUT;
-
-endmodule```
-### 2.6 *q1_error_case4.v*
-``` Verilog
-module top_module (
-    input clk,
-    input reset,      // Synchronous reset
-    input data,
-    output start_shifting);
-
-    parameter IDLE = 3`d0, S1 = 3'd1, S2 = 3'd2; 
-    parameter S3 = 3'd3, OUT = 3'd4;
-    reg [2:0] current_state, next_state;
-
-    always @(*) begin
-        case(current_state)
-            IDLE:       next_state = data ? S1 : IDLE;
-            S1:         next_state = data ? S2 : IDLE;
-            S2:         next_state = data ? S2 : S3;
-            S3:         next_state = data ? OUT : IDLE;
-            OUT:        next_state = OUT;
-            default:    next_state = IDLE;
-        endcase
-    end
-
-    always @(posedge clk) begin
-        if(reset) begin
-            current_state <= IDLE;
-        end
-        else begin
-            current_state <= next_state;
-        end
-    end
-
-    assign start_shifting = current_state == OUT;
-
-endmodule```
-### 2.7 *q1_error_case5.v*
-``` Verilog
-
-module top_module (
-    input clk,
-    input reset,      // Synchronous reset
-    input table,
-    output start_shifting);
-
-    parameter IDLE = 3'd0, S1 = 3'd1, S2 = 3'd2;
-    parameter S3 = 3'd3, OUT = 3'd4;
-    reg [2:0] current_state, next_state;
-
-    always @(*) begin
-        case(current_state)
-            IDLE:       next_state = table ? S1 : IDLE;
-            S1:         next_state = table ? S2 : IDLE;
-            S2:         next_state = table ? S2 : S3;
-            S3:         next_state = table ? OUT : IDLE;
-            OUT:        next_state = OUT;
-            default:    next_state = IDLE;
-        endcase
-    end
-
-    always @(posedge clk) begin
-        if(reset) begin
-            current_state <= IDLE;
-        end
-        else begin
-            current_state <= next_state;
-        end
-    end
-
-    assign start_shifting = current_state == OUT;
-
-endmodule```
-### 2.8 *q1_error_case6.v*
-``` Verilog
-module top_module (
-    input clk,
-    input reset,      // Synchronous reset
-    input data,
-    output start_shifting);
-
-    parameter IDLE = 3'd0, S1 = 3'd1, S2 = 3'd2;
-    parameter S3 = 3'd3, OUT = 3'd4;
-    reg [2:0] current_state, next_state;
-
-    always 
-    begin
-        case(current_state)
-            IDLE:       next_state = data ? S1 : IDLE;
-            S1:         next_state = data ? S2 : IDLE;
-            S2:         next_state = data ? S2 : S3;
-            S3:         next_state = data ? OUT : IDLE;
-            OUT:        next_state = OUT;
-            default:    next_state = IDLE;
-        endcase
-    end
-
-    always @(posedge clk) begin
-        if(reset) begin
-            current_state <= IDLE;
-        end
-        else begin
-            current_state <= next_state;
-        end
-    end
-
-    assign start_shifting = current_state == OUT;
-
-endmodule```
 ---
 ## 3 **Report**
 ---
 ### 3.1 *Compile Report*<p align="right">**Errors: 0, Warnings: 0**</p>
 ```
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
-Start time: 23:27:39 on Feb 10,2024
+Start time: 23:33:33 on Feb 10,2024
 vlog -work work ./design/multiply.v ./design/testbench.v -l vcompile.txt 
 -- Compiling module multiply
 -- Compiling module tb
 
 Top level modules:
 	tb
-End time: 23:27:39 on Feb 10,2024, Elapsed time: 0:00:00
+End time: 23:33:33 on Feb 10,2024, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0
 ```
 ### 3.2 *Simulation Report*<p align="right">**Errors: 0, Warnings: 0**</p>
 ```
 # vsim -voptargs="+acc" work.tb -l ./vsim.txt -wlf ./vsim.wlf 
-# Start time: 23:27:39 on Feb 10,2024
+# Start time: 23:33:33 on Feb 10,2024
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  ModelSim SE-64 10.7 Dec  7 2017
 # //
@@ -741,7 +529,7 @@ Errors: 0, Warnings: 0
 #  ------ERROR. A mismatch has occurred-----,ERROR in          40
 # 1 ERROR! See log above for details.
 # quit
-# End time: 23:27:40 on Feb 10,2024, Elapsed time: 0:00:01
+# End time: 23:33:34 on Feb 10,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 ```
 ### 3.3 *TestBench Report*
