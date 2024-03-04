@@ -1,6 +1,6 @@
 ---
 title: Ring-Oscillator
-date: 2024-03-04 14:25:32
+date: 2024-03-04 14:34:29
 tags:
 ---
 ---
@@ -87,7 +87,7 @@ VDDA VDD 0 PWL 0 0 1n 'supply_voltage'
 .end
 ```
 ---
-## 3 **output.mt0** 
+## 2 **功耗仿真结果** 
 ---
 ``` output.mt0
 $DATA1 SOURCE='PrimeSim HSPICE' VERSION='S-2021.09 win64' PARAM_COUNT=0
