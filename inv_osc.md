@@ -1,6 +1,6 @@
 ---
 title: Ring-Oscillator
-date: 2024-03-04 11:14:01
+date: 2024-03-04 11:18:44
 tags:
 ---
 ---
