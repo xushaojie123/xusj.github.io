@@ -1,6 +1,6 @@
 ---
-title: Ring-Oscillator
-date: 2024-03-04 11:21:00
+title: Ring-Oscillator_v2
+date: 2024-03-04 14:23:32
 tags:
 ---
 ---
@@ -86,13 +86,3 @@ VDDA VDD 0 PWL 0 0 1n 'supply_voltage'
 .measure tran power AVG P(vdda) from=5n to=30n
 .end
 ```
----
-## 3 **output.mt0** 
----
-``` output.mt0
-$DATA1 SOURCE='PrimeSim HSPICE' VERSION='S-2021.09 win64' PARAM_COUNT=0
-.TITLE '*###############'
- power            temper           alter#          
- -7.840e-05       -196.0000        1               
-```
-
